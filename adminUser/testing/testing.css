@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.upperDiv {
+  /* background: #9EBC20; */
+  background: #606319;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  padding: 10px;
+}
+
+.pic-background {
+  background: url("images/pic-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.middleDiv {
+  background-color: #9EBC20;
+  height: 5px;
+}
+
+.lowerDiv {
+  /* background-color: #606319; */
+  background-color: #122601;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  opacity: 0.9;
+
+}
+
+
+#myTable {
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  /* background-color: #9ebc20; */
+}
+
+tr {
+  border-bottom: 1px solid #9EBC20
+}
+
+th, .td_serialNo {
+  background: #9EBC20;
+}
+
+#th_serialNo {
+  background-color: transparent;
+}

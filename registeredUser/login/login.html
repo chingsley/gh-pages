@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fast-Food-Fast/Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-page">
+
+        <div class="form">
+
+          <p id="error"></p>
+            <form class="signin-form" method="POST" action="../homePage/homePage.html" name="login" onsubmit="return validateForm()">
+                <input type="text" name="userName" id="userName" placeholder="user name" maxlength="20"/>
+                <input type="password" name="password" id="password" placeholder="password" maxlength="20"/>
+                <button id="login">sign in</button>
+                <!-- <input type="submit" value="login" /> -->
+                <p class="message">Don't have an account? <a href="../signUp/signUp.html">sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>

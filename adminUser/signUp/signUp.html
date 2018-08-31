@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fast-Food-Fast/Login</title>
+  <link rel="stylesheet" href="signUp.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+          <p id="error"></p>
+            <form class="register-form" method="POST" action="../login/login.html" name="login" onsubmit="return validateForm()">
+                <input type="text" id="userName" placeholder="user name" />
+                <input type="password" id="password" placeholder="password" />
+                <input type="text" placeholder="email" />
+                <button id="signUp">Register</button>
+                <p class="message">I have an account? <a href="../login/login.html">sign in</a></p>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
