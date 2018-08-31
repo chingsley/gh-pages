@@ -2,23 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="menuPage.css">
+  <link rel="stylesheet" href="orderPage.css">
 </head>
 <body>
-
-
   <div class="upperDiv">
     <div class ="upperDivCover">
     </div>
   </div>
-
-
   <div class="middleDiv">
     Our menu items
   </div>
-
-
   <div class="lowerDiv">
+
 
     <div class="divLinks">
 
@@ -26,7 +21,7 @@
           <a href="../homePage/homePage.html"><strong>Home</strong></a>
         </div>
         <div class="links">
-          <a href="../orderPage/orderPage.html"><strong>Place Order</strong></a>
+          <a href="../menuPage/menuPage.html"><strong>Veiw menu</strong></a>
         </div>
         <div class="links">
           <a href="../login/login.html"><strong>Sign Out</strong></a>
@@ -37,23 +32,26 @@
 
     <div class="grid-container">
 
-        <div class="grid-item" class="picDivs" id="item_1">
-           <img src="images/pic-1.jpg" />
-        </div>
-        <div class="grid-item" id="descDivs">
-            <p class="descriptions">
-              Our cake is carefully prepared to provide the most delicous taste
-              and an everlasting experience.
-            </p>
-            <br />
-            <p class="price">$5.00</p>
-         </div>
+       <div class="grid-item" class="picDivs" id="item_1">
+         <img src="images/pic-1.jpg" />
+      </div>
+       <div class="grid-item" id="descDivs">
+         <!-- <br /> -->
+          <p class="descriptions">
+            Our cake is carefully prepared to provide the most delicous taste
+            and an everlasting experience.
+          </p>
+          <br />
+          <p class="price">$5.00</p>
+          <input type="checkbox" class="checkbox" id="item_1_checkbox"> Select <br />
+          <input type="text" name="quantity" placeholder="Qty" />
+       </div>
 
 
-      <div class="grid-item" class="picDivs" id="item_2">
+       <div class="grid-item" class="picDivs" id="item_2">
          <img src="images/pic-3.jpg" />
       </div>
-      <div class="grid-item" id="descDivs">
+       <div class="grid-item" id="descDivs">
          <!-- <br /> -->
           <p class="descriptions">
             Our beef cake is is touted as the best in town. prepared to elicit the
@@ -61,10 +59,12 @@
           </p>
           <br />
           <p class="price">$10.00</p>
+          <input type="checkbox" class="checkbox" id="item_2_checkbox"> Select <br />
+          <input type="text" name="quantity" placeholder="Qty" />
        </div>
 
 
-      <div class="grid-item" class="picDivs" id="item_3">
+       <div class="grid-item" class="picDivs" id="item_3">
          <img src="images/pic-4.jpg" />
       </div>
        <div class="grid-item" id="descDivs">
@@ -75,6 +75,8 @@
           </p>
           <br />
           <p class="price">$5.00</p>
+          <input type="checkbox" class="checkbox" id="item_3_checkbox"> Select <br />
+          <input type="text" name="quantity" placeholder="Qty" />
        </div>
 
 
@@ -89,6 +91,8 @@
           </p>
           <br />
           <p class="price">$10.00</p>
+          <input type="checkbox" class="checkbox" id="item_4_checkbox"> Select <br />
+          <input type="text" name="quantity" placeholder="Qty" />
        </div>
 
 
@@ -103,6 +107,8 @@
           </p>
           <br />
           <p class="price">$12.00</p>
+          <input type="checkbox" class="checkbox" id="item_5_checkbox"> Select <br />
+          <input type="text" name="quantity" placeholder="Qty" />
        </div>
 
 
@@ -117,11 +123,12 @@
           </p>
           <br />
           <p class="price">$9.00</p>
+          <input type="checkbox" class="checkbox" id="item_6_checkbox"> Select <br />
+          <input type="text" name="quantity" placeholder="Qty" />
        </div>
 
 
     </div> <!--End "grid-container"  -->
-
 
   </div>  <!--End "lowerDiv" -->
 </body>
