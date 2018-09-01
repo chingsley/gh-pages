@@ -108,9 +108,15 @@ th, .td_serialNo {
   background-color: transparent;
 }
 
-.status:hover {
+.status, .accDec {
   cursor: pointer;
-  /* color: #A7BF22; */
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  /* width: 80px; */
+}
+
+
+.status:hover {
   color: #BABEA2;
   font-style: oblique;
   /* text-transform: lowercase; */
@@ -119,9 +125,10 @@ th, .td_serialNo {
 
 .incomplete {
   color: orange;
+  /* font-size: 14px; */
 }
 
-.acc_dec:hover {
+.accDec:hover {
   cursor: pointer;
   /* color: #A7BF22; */
   color: #BABEA2;
@@ -132,4 +139,31 @@ th, .td_serialNo {
 
 .declined {
   color: red;
+}
+
+.btn {
+  color: white;
+  background-color: #F44336;
+  /* opacity: 0.5; */
+  font-size: 12px;
+  padding: 3px 7px;
+  text-align: center;
+  text-decoration: none;
+  /* outline: none; */
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+
+  /* position: relative; */
+  /* overflow: hidden; */
+
+}
+
+.btn:active {
+  background-color: red;
+  /* box-shadow: 0 5px #666; */
+  transform: translate(4px);
+  height: 22px;
+  width: 50px;
+  font-size: 12px
 }

@@ -36,7 +36,7 @@
                 <th><strong>Total price</strong></th>
                 <th><strong>Delivery time</strong></th>
                 <th><strong>Accept/Decline</strong></th>
-                <th><strong>Order status</strong></th>
+                <th><strong>Change Order status</strong></th>
                 <th><strong>Delete order</strong></th>
               </tr>
               <tr>
@@ -44,45 +44,45 @@
                 <td>order 1 (list)</td>
                 <td>$50</td>
                 <td>2/02/28 12:00pm</td>
-                <td class="acc_dec declined">DECLINED</td> <!-- class "acc_dec" refers the Accept/Decline cells -->
+                <td class="accDec declined">DECLINED</td> <!-- class "acc_dec" refers the Accept/Decline cells -->
                 <td class="status"></td>
-                <td>Delete</td>
+                <td class="cellDelete"><input type="button" class="btn" value="Delete" /></td>
               </tr>
               <tr>
                 <td class="td_serialNo"><strong>2</strong></td>
                 <td>order 1 (list)</td>
                 <td>$50</td>
                 <td>2/02/28 12:00pm</td>
-                <td class="acc_dec">ACCEPTED</td>
+                <td class="accDec">ACCEPTED</td>
                 <td class="status">COMPLETE</td>
-                <td>Delete</td>
+                <td class="cellDelete"><input type="button" class="btn" value="Delete" /></td>
               </tr>
               <tr>
                 <td class="td_serialNo"><strong>3</strong></td>
                 <td>order 1 (list)</td>
                 <td>$50</td>
                 <td>2/02/28 12:00pm</td>
-                <td class="acc_dec">ACCEPTED</td>
+                <td class="accDec">ACCEPTED</td>
                 <td class="status incomplete">INCOMPLETE</td>
-                <td>Delete</td>
+                <td class="cellDelete"><input type="button" class="btn" value="Delete" /></td>
               </tr>
               <tr>
                 <td class="td_serialNo"><strong>4</strong></td>
                 <td>order 1 (list)</td>
                 <td>$50</td>
                 <td>2/02/28 12:00pm</td>
-                <td class="acc_dec">ACCEPTED</td>
+                <td class="accDec">ACCEPTED</td>
                 <td class="status">COMPLETE</td>
-                <td>Delete</td>
+                <td class="cellDelete"><input type="button" class="btn" value="Delete" /></td>
               </tr>
               <tr>
                 <td class="td_serialNo"><strong>5</strong></td>
                 <td>order 1 (list)</td>
                 <td>$50</td>
                 <td>2/02/28 12:00pm</td>
-                <td class="acc_dec">ACCEPTED</td>
+                <td class="accDec">ACCEPTED</td>
                 <td class="status">COMPLETE</td>
-                <td>Delete</td>
+                <td class="cellDelete"><input type="button" class="btn" value="Delete" /></td>
               </tr>
             </table>
           </div>  <!--End tableDiv -->
@@ -96,13 +96,8 @@
 
   <script>
 
-        // let table = document.getElementsByTagName('table')[0];
-        // console.log(table);
-        // console.log(table.rows[0].cells[5]);
-        // console.log(table.column[5]);
-
-
-        let accDec = document.querySelectorAll('.acc_dec');
+    {// (#1) MARK ORDERS AS ACCEPTED OR DECLINED }
+        let accDec = document.querySelectorAll('.accDec');
         console.log(accDec[0].nextSibling.nextElementSibling)
         for(let i = 0; i < accDec.length; i++) {
 
@@ -150,9 +145,11 @@
                   });
 
         }//end for (accDec)
+    }//END (#1)
 
 
-        let status = document.querySelectorAll('.status');
+    {// (#2) MARKD ORDER AS COMPLETE OR INCOMPLETE
+       let status = document.querySelectorAll('.status');
         console.log(status);
         for(let i = 0; i < status.length; i++) {
 
@@ -195,19 +192,33 @@
                     }
                     clicked = false;
               });//end mouseleave
-              // status[i].addEventListener("click", function() {
-                // console.log("works");
-                // if(status[i].innerHTML == "COMPLETE") {
-                //   status[i].classList.add("incomplete");
-                //   status[i].innerHTML = "INCOMPLETE"
-                // } else {
-                //   status[i].classList.remove("incomplete");
-                //   status[i].innerHTML = "COMPLETE"
-                // }
-              // });
+
         }//end for(.. status.length...)
 
+    }//END(#2)
 
+    {// (#3) DELETE AN ORDER
+
+        // get the table element;
+        let table = document.getElementById("myTable");
+
+        for (let i = 1; i < table.rows.length; i++ ) {
+            // NOTE: the count starts from 1 (instead of 0), because the zero index belongs the header row
+            // console.log(table.rows[i]); // table.rows[i] represents each row of the table
+
+            //add the click event listener to all the cells in the 6th column (the delete column)
+            table.rows[i].cells[6].addEventListener("click", function() {  // cell in the 6th column (the delete column) is clicked
+                let c = confirm("You are about to delete this order");
+                if(c == true) {
+                    let index = this.parentElement.rowIndex; // the index of the row to which the clicked cell belong
+                    table.deleteRow(index);
+                    // console.log(index);
+                }//end if
+            });//end click event
+
+        }//end for
+
+    }//END (#3)
 
 
   </script>
