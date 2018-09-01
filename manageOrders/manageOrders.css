@@ -107,3 +107,29 @@ th, .td_serialNo {
   /* background-color: #606319; */
   background-color: transparent;
 }
+
+.status:hover {
+  cursor: pointer;
+  /* color: #A7BF22; */
+  color: #BABEA2;
+  font-style: oblique;
+  /* text-transform: lowercase; */
+  font-size: 20px;
+}
+
+.incomplete {
+  color: orange;
+}
+
+.acc_dec:hover {
+  cursor: pointer;
+  /* color: #A7BF22; */
+  color: #BABEA2;
+  font-style: oblique;
+  /* text-transform: lowercase; */
+  font-size: 20px;
+}
+
+.declined {
+  color: red;
+}
