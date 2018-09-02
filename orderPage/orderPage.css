@@ -26,23 +26,27 @@
   padding: 10px;
 }
 
-.lowerDiv {
-  /* background-color: #606319; */
+.lowerDiv { /*RECALL: lowerDiv is also the main-grid-container */
+  background: url("images/pic-3.jpg");
+  background-size: cover;
+  background-position: center;
+
   background-color: #122601;
-  /* height: 600px; */
-  padding-bottom: 20px;
-  padding-top: 10px;
+  /* padding-bottom: 20px; */
+  /* padding-top: 10px; */
   display: grid;
-  grid-template-columns: 1fr 8fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: minmax(80px, auto);
+  /* max-width: 1400px; */
+  /* grid-column-gap: 20px; */
 }
 
 
 .divLinks {
-  /* border: 1px solid white; */
   padding-top: 50px;
-  border-right: 1px solid #9EBC20;
+  /* border-right: 1px solid #9EBC20; */
   background-color: #122601;
+  /* width: 200px; */
 }
 
 .links {
@@ -50,9 +54,9 @@
   height: 40px;
   line-height: 40px;
   text-align: center;
-  /* background-color: #606319; */
-  margin-bottom: 20px;
-  margin-left: 10px;
+  margin: 50px auto;
+  /* margin-bottom: 20px; */
+  /* margin-left: 10px; */
 
 }
 
@@ -63,7 +67,6 @@
 .links a {
   color: white;
   text-decoration: none;
-  /* padding: 20px; */
 }
 
 .grid-container {
@@ -71,28 +74,27 @@
   /* grid-template-columns: 33.3% 33.3% 33.3%; */
   grid-template-columns: 1fr 1fr 1fr 1fr;
   /* grid-template-columns: repeat(3, 1fr); */
-  grid-auto-rows: minmax(200px, auto);
+  grid-auto-rows: minmax(50px, auto);
   /* grid-gap: 20px; */
   grid-row-gap: 50px;
   grid-column-gap: 10px;
-  max-width: 960px;
-  margin: 0 auto;
-  /* margin-bottom: 20px; */
-  /* background-color: lightgreen; */
+  max-width: 700px;
+  background-color: #122601;
+  /* opacity: 0.9; */
+  /* margin: 0 auto; */
+  /* margin-left: 150px; */
+
+  /* border: 3px solid lightgreen; */
+
 }
 
 .grid-item {
-  /* height: 200px;
-  width: 200px; */
-  border: 1px solid black;
+  width: 200px;
+  height: 180px;
+  /* border: 1px solid green; */
   color: silver;
 }
 
-/* #item_1 {
-  background-image: url("images/pic-1.jpg");
-  background-size: cover;
-  background-position: center;
-} */
 
 .grid-item img {
   height: 100%;
@@ -102,17 +104,16 @@
 
 #descDivs {
   margin-right: 20px;
-  border: none;
-  /* grid-column-gap: 50px; */
+  /* border: 1px solid green; */
+  width: 120px;
 }
 
 .price {
-  background-color: #282C34;
-  /* border: 1px solid silver; */
+  /* background-color: #282C34; */
+  background-color: #1C2C01;
   width: 50px;
   padding: 5px;
   margin-bottom: 10px;
-  /* font-size: 1em; */
   font-weight: bold;
 }
 
@@ -122,8 +123,121 @@
 }
 
 input[name="quantity"] {
-  width: 50px;
+  width: 48px;
   padding: 5px;
-  /* font-weight: bold; */
-  /* background-color: #9EBC20; */
+  border: none;
+  /* border: 1px solid #9EBC20; */
+  /* background-color: black; */
+  background-color: #1C2C01;
+  color: white;
+}
+
+.selectedItems {
+  /* border: 2px solid #9EBC20; */
+  width: 450px;
+  color: white;
+  background-color: #122601;
+  opacity: 0.8;
+}
+
+#orderTable, #tableTotal {
+  border-collapse: collapse;
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#orderTable caption {
+  margin-bottom: 20px;
+  font-family: cursive;
+  font-weight: 900;
+  color: #FDC62D;
+}
+
+th, td {
+  text-align: center;
+  padding: 10px;
+}
+
+#orderTable tr:nth-child(even) {
+  /* background-color: green;
+  opacity: 0.3;
+  color: yellow; */
+}
+
+tr {
+  border-bottom: 1px solid #9EBC20;
+}
+
+#orderTable th, .serialNo {
+  background-color: #9EBC20;
+}
+
+#orderTable .deleteItem {
+  background-color: red;
+  width: 17px;
+  /* transition-duration: 0.4s; */
+}
+
+#orderTable .deleteItem:active {
+  background-color: pink;
+}
+
+#tableTotal th {
+  /* display: none; */
+  visibility: hidden;
+}
+
+#tableTotal td {
+  font-weight: 900;
+}
+
+#totalPrice {
+  font-size: 24px;
+}
+
+#btnPurchase {
+  background-color: #7DC996;
+  font-size: 16px;
+  font-weight: 900;
+  padding: 10px 24px;
+  border-radius: 2px;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#btnPurchase:hover {
+  background-color: #1F2B02;
+  color: white;
+}
+
+#btnPurchase:active {
+  background-color: #4CAF50;
+  color: white;
+}
+.selectButtons {
+  /* background-color: #7DC996; */
+  color: silver;
+  font-weight: 900;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 2px;
+  transition-duration: 0.4s;
+  /* -webkit-transition-duration: 0.4s; */
+  color: black;
+  background-color: #4CAF50;
+}
+
+
+.selectButtons:active {
+  background-color: #232E03;
+  color: white;
+}
+
+
+#totalPrice {
+
 }
