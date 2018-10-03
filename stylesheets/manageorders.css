@@ -5,8 +5,10 @@
 
 body {
   /* background-color: #122601; */
-  background-color: #293038;
-  /* background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/food7.jpg') no-repeat; */
+  background-color: #5D4723;
+  /* background-image: linear-gradient(to right, #666666, #5D4723); */
+
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/food7.jpg') no-repeat;
 }
 
 /**********NAVIGATION******************/
@@ -27,8 +29,8 @@ body {
 
 
 .navigationDiv {
-  /* background-color: #00bab1; */
-  background-color: black;
+  background-color: #1C1114;
+  /* background-color: black; */
   height: 80px;
   padding: 3px;
   line-height: 80px;
