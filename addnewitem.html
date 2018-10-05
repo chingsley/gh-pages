@@ -5,24 +5,22 @@
   <title>Fast Food Fast</title>
   <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Abel|Arvo" rel="stylesheet">
-  <link rel='stylesheet' href='./stylesheets/signin.css'>
+  <link rel='stylesheet' href='./stylesheets/addnewitem.css'>
 </head>
 <body>
   <div class="div_container">
     <div class="loginbox">
-      <!-- <img src="/images/avatar.png" class="avatar"> -->
-      <h1>Login Here</h1>
+      <h1>add new item</h1>
        <div class="form">
            <p id="error"></p>
                <form class="signin-form" action="userlandingpage.html" name="signin">
-                 <p>Username</p>
-                   <input type="text" name="userName" id="userName" placeholder="user name" maxlength="20" required/>
-                   <p>Password</p>
-                   <input type="password" name="password" id="password" placeholder="password" maxlength="20", minlength="6" required/>
+                 <p>item name:</p>
+                   <input type="text" name="itemname" id="itemname" placeholder="" maxlength="50" required/>
+                   <br /><br /><br />
+                   <p>image:</p><br />
+                   <input type="file" name="imagepath" id="imagepath" placeholder="" maxlength="1700", minlength="6" required/>
+                   <br /><br /><br />
                    <input type="submit" href="userlandingpage.html" id="login">
-                   <a href="signup.html">Don't have an account?</a><br />
-                   <a href="adminlandingpage.html">signin as Admin</a>
-
                </form>
        </div>
    </div>

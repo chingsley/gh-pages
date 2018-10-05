@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="./stylesheets/guestmenupage.css">
+  <link rel="stylesheet" href="./stylesheets/new_regusermenupage.css">
 </head>
 <body>
 
@@ -10,8 +10,8 @@
   <section class="section_container">
     <div class="navigationDiv">
       <a href="index.html"><img src="images/homeicon.png" alt="Home" id="home-link"/></a>
-      <a id="signin-link" class="left-links" href="signin.html">Place Order</a>
-      <a id="signin-link" class="left-links" href="signin.html">Sign In</a>
+      <a id="signin-link" class="left-links" href="orderhistory.html">view history</a>
+      <a id="signin-link" class="left-links" href="signin.html">Sign Out</a>
     </div>
   </section>
 
@@ -27,6 +27,14 @@
 <div class="behind-the-lowerDiv">
  <div class="lowerDiv">
 
+   <div id="div-for-cart">
+     <!-- <button id="checkout"><a id="a-for-checkout" href="userinfo.html">checkout</a></button> -->
+     <button id="checkout">checkout</button>
+     <ul id="ul-for-cart">
+       <li>cart list</li>
+     </ul>
+   </div>
+
 
 
    <div class="grid-container">
@@ -34,82 +42,86 @@
        <div class="grid-item" class="picDivs" id="item_1">
          <p class="price">Burger [ N1000 ]</p>
           <img src="images/food7.jpg" />
-          <button  class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
        </div>
 
        <div class="grid-item" class="picDivs" id="item_1">
          <p class="price">Burger [ N1000 ]</p>
           <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
        </div>
 
        <div class="grid-item" class="picDivs" id="item_1">
          <p class="price">Burger [ N1000 ]</p>
           <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
        </div>
 
        <div class="grid-item" class="picDivs" id="item_1">
          <p class="price">Burger [ N1000 ]</p>
           <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
-       </div>
-
-
-       <div class="grid-item" class="picDivs" id="item_1">
-         <p class="price">Burger [ N1000 ]</p>
-          <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
-       </div>
-
-       <div class="grid-item" class="picDivs" id="item_1">
-         <p class="price">Burger [ N1000 ]</p>
-          <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
-       </div>
-
-       <div class="grid-item" class="picDivs" id="item_1">
-         <p class="price">Burger [ N1000 ]</p>
-          <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
-       </div>
-
-       <div class="grid-item" class="picDivs" id="item_1">
-         <p class="price">Burger [ N1000 ]</p>
-          <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
-       </div>
-
-       <div class="grid-item" class="picDivs" id="item_1">
-         <p class="price">Burger [ N1000 ]</p>
-          <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
-       </div>
-
-       <div class="grid-item" class="picDivs" id="item_1">
-         <p class="price">Burger [ N1000 ]</p>
-          <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
        </div>
 
 
        <div class="grid-item" class="picDivs" id="item_1">
          <p class="price">Burger [ N1000 ]</p>
           <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
        </div>
 
        <div class="grid-item" class="picDivs" id="item_1">
          <p class="price">Burger [ N1000 ]</p>
           <img src="images/food7.jpg" />
-          <button class="btn-select-item" value="Add to Cart"><a class="a-in-button" href="signin-from-menu.html" >Add to Cart</a></button>
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
        </div>
 
+       <div class="grid-item" class="picDivs" id="item_1">
+         <p class="price">Burger [ N1000 ]</p>
+          <img src="images/food7.jpg" />
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
+       </div>
+
+       <div class="grid-item" class="picDivs" id="item_1">
+         <p class="price">Burger [ N1000 ]</p>
+          <img src="images/food7.jpg" />
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
+       </div>
+
+       <div class="grid-item" class="picDivs" id="item_1">
+         <p class="price">Burger [ N1000 ]</p>
+          <img src="images/food7.jpg" />
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
+       </div>
+
+       <div class="grid-item" class="picDivs" id="item_1">
+         <p class="price">Burger [ N1000 ]</p>
+          <img src="images/food7.jpg" />
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
+       </div>
+
+
+       <div class="grid-item" class="picDivs" id="item_1">
+         <p class="price">Burger [ N1000 ]</p>
+          <img src="images/food7.jpg" />
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
+       </div>
+
+       <div class="grid-item" class="picDivs" id="item_1">
+         <p class="price">Burger [ N1000 ]</p>
+          <img src="images/food7.jpg" />
+          <button class="btn-select-item" value="Add to Cart">Add to Cart</button>
+       </div>
 
    </div> <!--End "grid-container"  -->
 
 
  </div>  <!--End "lowerDiv" -->
 </div> <!--End "behind-the-lowerDiv" -->
+
+<script>
+     console.log("hello");
+</script>
+
 </body>
 </html>
