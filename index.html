@@ -1,138 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Food Fast</title>
-  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Abel|Arvo" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
-  <link rel='stylesheet' href='./stylesheets/style.css'>
-</head>
-<body>
-  <section id="main_upper_level_container">
-    <section class="section_container">
-    <div class="headerDiv">
-        <div class="menuDiv">
-              <ul class="outerUL">
-                <!-- <li><a href="menu.html">Menu</a></li> -->
-                <li><a class="headerLinks" href="signin.html">Sign in</a></li>
-                <li><a class="headerLinks" href="guestmenupage.html">Our Menu</a></li>
-                <!-- <li>
-                  <a>Our Menu</a>
-                  <ul class="innerUL">
-                    <li><a>08063550695</a></li>
-                    <li><a href="https://accounts.google.com">fff@gmail.com</a></li>
-                  </ul>
-                </li> -->
-              </ul>
-          </div>
-          <label for="toggle">&#9776;</label>
-          <input type="checkbox" id="toggle"/>
-    </div>
-    <div class="div_container">
-      <h1><span id="lbl_fast">FAST</span> AND DELICIOUS</h1>
-      <p id="advert_text">
-        Do you want the quickest and most delicious of fast foods, then you have
-        come to the right place. We are fast, we are good. We will make sure you
-        have your best taste experience ever!
-      </p>
-      <span id="lbl_eat_responsibly">Eat Responsibly</span>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="a web app designed for reporting corruption and need for intervention">
+        <meta name="keywords" content="iReporter, report, redflag, intervention, incidence, corruption">
+        <meta name="author" content="Eneja Kingsley">
+        <title>iReporter | Welcome</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <!-- <link rel="stylesheet" href="./css/testin.css"> -->
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <div id="header-flex-box">
+                    <div class="logo" id="div-site-name-id">
+                        <h1><a href="index.html"><span class="special-coloring">i</span><span class="repa">Repa</span></a></h1>
+                    </div>
+                    <nav class="navigation">
+                        <ul class="nav-ul">
+                            <!-- <li class="li-outer animated-link active-link"><a href="#" class="links">Home</a></li> -->
+                            <li class="li-outer li-account"><a href="#" class="links">Account</a>
+                                <ul>
+                                    <li class="li-inner animated-link"><a href="login.html" class="links">Login</a></li>
+                                    <li class="li-inner animated-link"><a href="signup.html" class="links">Register</a></li>
+                                </ul>
+                            </li>
+                            <li class="li-outer li-reports"><a href="#" class="links">Reports</a>
+                                <ul>
+                                    <li class="li-inner animated-link"><a href="#" class="links">Report a case</a></li>
+                                    <li class="li-inner animated-link"><a href="#" class="links">Report history</a></li>
+                                    <li class="li-inner animated-link"><a href="#" class="links">All Reports</a></li>
+                                </ul>
+                            </li>
+                            <li class="li-outer animated-link"><a href="#" class="links">User profile</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <section class="main-section">
+            <div class="main-section-div">
+                <div class="mission-statement">
+                    <h1 class="mission-statement-big">
+                        <!-- Taking Africa to the next level -->
+                       <span id="style-ireporter">
+                            <span id="style-i">i</span>
+                            <span id="style-reporter">Reporter</span>
+                        </span><span id="style-africa">Africa</span>
+                    </h1>
+                    <h3 class="mission-statement-small">
+                        <!-- Bad things happen because Good people do nothing about it. -->
+                        breaking barriers and creating a better future
+                    </h3>
+                </div>
+            </div>
+        </section>
 
-      <form class='form_search' action=''>
-        <input class='text_search' type='text' placeholder='Search for food'>
-        <button type='submit'>Find Food</button>
-      </form>
-    </div>
-  </section>
- </section>
+    <section class="section-newsletter">
+        <div class="container" id="newsletter-container">
+            <h1 id="h1-id">Subscribe To Our Newsletter</h1>
+            <form action="#" id="form-id">
+                <div class="input-and-label">
+                    <input type="email" class="input-class" id="email" placeholder="Enter Email..." required>
+                    <label for="email" class="label-class">Enter Email...</label>
+                </div>
+                <button type="submit" id="btn__submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
 
-  <h2 id="lower_section_title"> Most demanded </h2>
+        <section class="section-about">
+            <div class="u-center-text u-margin-bottom-medium u-margin-top-big">
+                <h2 class="heading-secondary-dark">
+                    We have one job: developing Africa
+                </h2>
+            </div>
+            <div class="row flex-box">
+                <div class="col-1-of-2">
+                    <div class="info">
+                        <h3 class="heading-tertiary u-margin-bottom-small">Take a step towards ending corruption</h3>
+                        <p class="paragraph">
+                            Corruption denies us the basic ammenities, corruption denies persons living with 
+                            disabilities friendly facilities. Report any corrupt practice and let us build a better 
+                            world together!
+                        </p>
+                    </div>
+                    <div class="info u-margin-bottom-medium">
+                        <h3 class="heading-tertiary u-margin-bottom-small">We can help, if only you would let us know</h3>
+                        <p class="paragraph">
+                           Recent research indicates that by 2020, more than 20,000 families could be affected by sever
+                           flood and communal clashes. Help us prevent this. Start by telling us what needs to be fixed right now in your area.
+                           Help is one click away!
+                        </p>
+                    </div>
 
-  <div class='lower_section' class='lower-section-grid-container'>
-    <div class='div_products' id="first_product">
-      <img src='images/food4.jpg' width='180px' height='180px' alt='food item'>
-      <h2 class='product_heading'>Food 1</h2>
-      <p>
-        Describe the food here Lorem ipsum dolor sit amet,
-         consectetur adipiscing elit, sed do eiusmod tempor
-         incididunt ut labore et dolore magna aliqua.
-         Ut enim ad minim veniam, quis nostrud exercitation
-      </p>
-    </div>
-    <div class='div_products'>
-      <img src='images/food2.jpg'  width='180px' height='180px' alt='food item'>
-      <h2 class='product_heading'>Food 2</h2>
-      <p>
-        Describe the food here Lorem ipsum dolor sit amet,
-         consectetur adipiscing elit, sed do eiusmod tempor
-         incididunt ut labore et dolore magna aliqua.
-         Ut enim ad minim veniam, quis nostrud exercitation
-      </p>
-    </div>
-    <div class='div_products'>
-      <img src='images/food3.jpg' width='180px' height='180px' alt='food item'>
-      <h2 class='product_heading'>Food 3</h2>
-      <p>
-        Describe the food here Lorem ipsum dolor sit amet,
-         consectetur adipiscing elit, sed do eiusmod tempor
-         incididunt ut labore et dolore magna aliqua.
-         Ut enim ad minim veniam, quis nostrud exercitation
-      </p>
-    </div>
-    <div class='div_products'>
-      <img src='images/food4.jpg' width='180px' height='180px' alt='food item'>
-      <h2 class='product_heading'>Food 4</h2>
-      <p>
-        Describe the food here Lorem ipsum dolor sit amet,
-         consectetur adipiscing elit, sed do eiusmod tempor
-         incididunt ut labore et dolore magna aliqua.
-         Ut enim ad minim veniam, quis nostrud exercitation
-      </p>
-    </div>
+                    <div class="link-container"><a href="#" class="link" id="link-on-white-bg">Learn more &rarr;</a></div>
+                </div>
+                <div class="col-1-of-2">
+                    <div class="img-gallery">
+                        <img src="img/nat-1.jpg" alt="photo 1" class="img-in-gallery img-in-gallery-1">
+                        <img src="img/nat-2.jpg" alt="photo 2" class="img-in-gallery img-in-gallery-2">
+                        <img src="img/nat-3.jpg" alt="photo 3" class="img-in-gallery img-in-gallery-3">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class='div_products'>
-      <img src='images/food5.jpg' width='180px' height='180px' alt='food item' />
-      <h2 class='product_heading'>Food 5</h2>
-      <p>
-        Describe the food here Lorem ipsum dolor sit amet,
-         consectetur adipiscing elit, sed do eiusmod tempor
-         incididunt ut labore et dolore magna aliqua.
-         Ut enim ad minim veniam, quis nostrud exercitation
-      </p>
-    </div>
-  </div>
+        <section class="section-incidence">
+            <div class="u-center-text u-margin-bottom-medium u-margin-top-medium">
+                <h2 class="heading-secondary">
+                    Report an incidence or a Redflag
+                </h2>
+            </div>
+            <div class="row">
+                <div class="flex-box-card">
+                    <div class="col-1-of-2">
+                        <div class="card">
+                            <div class="card-picture card-picture--1">
+                                &nbsp;
+                            </div>
+                            <h4 class="card-heading">
+                                <!-- <span class="card-heading-span card-heading-span--1">Currupt Practices</span> -->
+                                <span class="card-heading-span card-heading-span--1">Red-flag records</span>
+                            </h4>
+                            <div class="card-details">
+                                <ul>
+                                    <li>Embezzlement</li>
+                                    <li>Extortion</li>
+                                    <li>Nepotism</li>
+                                    <li>Child abuse</li>
+                                    <li>... and many more</li>
+                                </ul>
+                            </div>
+                            <div class="link-container u-center-item"><a href="#" class="link">Report a case &rarr;</a></div>
+                        </div>
+                    </div>
+                    <div class="col-1-of-2">
+                        <div class="card">
+                                <div class="card-picture card-picture--2">
+                                    &nbsp;
+                                </div>
+                                <h4 class="card-heading">
+                                    <span class="card-heading-span card-heading-span--2">Intervention Records</span>
+                                </h4>
+                                <div class="card-details">
+                                    <ul>
+                                        <li>Bad road sections</li>
+                                        <li>Flooding</li>
+                                        <li>Communal violence</li>
+                                        <li>Disease outbreak</li>
+                                        <li>... and many more</li>
+                                    </ul>
+                                </div>
+                                <div class="link-container u-center-item"><a href="#" class="link">Report a case &rarr;</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-stories">
+            <div class="row">
+                <div class="flex-box-stories">
+                    &nbsp;
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-logo-box">
+                <div class="logo" id="div-site-name-id">
+                    <h1 class="logo-footer-version"><span class="special-coloring">i</span>Repa</h1>
+                </div>
+            </div>
+
+                <div class="row flex-box-footer">
+                    <div class="col-1-of-2">
+                        <div class="footer-navigation">
+                            <ul class="footer-ul">
+                                <li class="footer-ul-li"><a href="#" class="footer-link">About us</a></li>
+                                <li class="footer-ul-li"><a href="#" class="footer-link">Contact us</a></li>
+                                <li class="footer-ul-li"><a href="#" class="footer-link">Privacy policy</a></li>
+                                <li class="footer-ul-li"><a href="#" class="footer-link">Terms</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-1-of-2">
+                        <p class="footer-copyright">
+                            Built by <a href="#" class="footer-link">Eneja Kingsley</a>. Copyright &copy; by Eneja Kingsley. Lorem ipsum dolor,
+                            sit amet consectetur adipisicing elit. Voluptatibus magnam eveniet vero corporis, repellat modi ducimus deleniti
+                            voluptatum a hic qui excepturi veritatis totam iste quos ullam est sunt omnis.
+                        </p>
+                    </div>
+                </div>
+        </footer>
 
 
-
-  <div class="footer">
-    <div class="footer-grid-container">
-      <div class="grid-item">
-        <p><h3>Contact Us</h3>
-          Describe the food here Lorem ipsum dolor sit amet,
-           consectetur adipiscing elit, sed do eiusmod tempor
-        </p>
-      </div>
-      <div class="grid-item">
-        <p><h3>Locate Us at</h3>
-          Describe the food here Lorem ipsum dolor sit amet,
-           consectetur adipiscing elit, sed do eiusmod tempor
-        </p>
-      </div>
-      <div class="grid-item">
-        <p><h3>Add Title</h3>
-          Describe the food here Lorem ipsum dolor sit amet,
-           consectetur adipiscing elit, sed do eiusmod tempor
-        </p>
-      </div>
-      <div class="grid-item">
-        <p><h3>Add Title</h3>
-          Describe the food here Lorem ipsum dolor sit amet,
-           consectetur adipiscing elit, sed do eiusmod tempor
-        </p>
-      </div>
-
-    </div>
-  </div>
-</body>
+        <script src="./js/script.js"></script>
+    </body>
 </html>
