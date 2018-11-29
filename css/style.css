@@ -36,9 +36,12 @@
     /* border: 2px solid black; */
 }
 
-body {
+html, body {
     /* font-family: Arial, Helvetica, sans-serif; */
     font-family: 'Times New Roman', Times, serif;
+    /* position: absolute; */
+    /* width: 100vw; */
+    overflow-x: hidden;
 }
 
 ul {
@@ -47,6 +50,9 @@ ul {
     padding: 0px;
 }
 
+ .margin-div {
+        margin-right: 20px;
+        margin-left: 20px;}
 
 /*------------------------------------------*/
 
@@ -176,11 +182,13 @@ ul {
 
 /*------------------------------------------*/
 
+
+/***************************** HOME PAGE **********************************/
 header {
         background-image: linear-gradient(to right bottom, #35424a, rgba(53, 66, 74, 1));
         color: #fafad2;
         padding-top: 30px;
-        min-height: 70px;
+        min-height: 100px;
         border-bottom: #e8491d 3px solid;}
     #header-flex-box {
         display: flex;
@@ -211,6 +219,7 @@ header {
             .links:hover{
                 color: white;}
         .li-inner {
+            z-index: 1000;
             display: none;
             text-align: center;}
         .li-outer:hover .li-inner {
@@ -251,6 +260,14 @@ header {
     min-height: 400px;  
     background-size: cover;  
     text-align: center;}
+    .mission-statement {
+        padding: 24px 0 24px 0;
+        width: 79%;
+        /* margin: 0 auto; */
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);}
     .mission-statement-big {
         font-size: 55px;
         margin-bottom: 15px;
@@ -259,10 +276,6 @@ header {
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;}
-    .mission-statement {
-        padding: 24px 0 24px 0;
-        width: 79%;
-        margin: 0 auto;}
     .mission-statement h1 {
         margin-top: 10%;}
     #style-i {
@@ -350,6 +363,7 @@ header {
             transform: translateY(-4rem);  /* With the labe below the input box, this will move upwards */
             /*transform: translateY(4rem); */ /*With the label above the input box, this will move it downwards*/}
         .btn {
+            cursor: pointer;
             height: 38px;
             text-transform: uppercase;
             font-weight: 700;
@@ -359,9 +373,6 @@ header {
             padding-right: 20px;
             color: #ffffff;
             border-radius: 2px;}
-
-
-
 
 
 .section-about {
@@ -565,16 +576,15 @@ header {
         border-top: 1px solid #6c7a89;
         padding-top: 1rem;}
    
+/******************* (END HOME PAGE) *************/
+
 
 /******************** SIGN-UP PAGE **************/
     .registration-div {
-        background-image: linear-gradient(
-                        90deg,
-                    rgba(250, 250, 50, 1) 0%,
-                    rgba(255, 255, 255, 0.9), 100%, 
-                    transparent 50%
-                    ), 
-                    url(../img/nat-10.jpg);
+        /* background-image: linear-gradient(90deg,rgba(250, 250, 50, 1) 0%,rgba(255, 255, 255, 0.9), 100%, transparent 50%), url(../img/nat-10.jpg); */
+        /* background-image: linear-gradient( 179deg, rgba(250, 250, 50, 1) -15%, rgba(255, 255, 255, 0.9), 100%, transparent 100% ), url(../img/nat-10.jpg); */
+        /* background-image: linear-gradient( 179deg, rgba(211, 211, 211, .8) 0%, rgba(255, 255, 255, 0.9), 100%, transparent 100% ), url(../img/nat-2-large.jpg); */
+        background-image: linear-gradient( 179deg,  rgba(250, 250, 210, 1) 0%, rgba(255, 255, 255, 0.9), 100%, transparent 100% ), url(../img/nat-10.jpg);
         background-size: cover;
         /* background-size: 100%; */ /* This is a poor alternative to background-size: cover*/
         border-radius: 3px;
@@ -607,6 +617,7 @@ header {
         opacity: 0.5;
         width: 60%;}
     .form-group {
+        /* border: 1px solid black; */
         width: 70%;
         margin: 0 auto;
         padding: 2px;}
@@ -665,9 +676,10 @@ header {
         font-size: 1rem;
         padding: 10px;
         width: 50%;}
-/*************************************************/
+/**************** (END SIGN-UP PAGE) ******************/
 
-/*********************** LOGIN PAGE **************/
+
+/******************* LOGIN PAGE *********************/
 .section-login {
     padding: 0 0;
      background-image: linear-gradient(to right bottom, #6c7a89, black);}
@@ -686,8 +698,7 @@ header {
     height: 30rem;}
     .login-form-group {
         width: 80%;
-        margin: 0 auto;
-    }
+        margin: 0 auto;}
     .login-form-group:not(:last-child) {
         margin-bottom: 2rem;}
     .login-form-input {
@@ -721,12 +732,12 @@ header {
         width: 40%;
         font-size: 1rem;}
 
-/*************************************************/
+/****************** (END LOGIN PAGE) **********************/
 
 
 
 /******************TEST SIGN-UP ******************/
-  .test-section-register {
+    .test-section-register {
      background-image: linear-gradient(
     to right bottom, 
     rgba(53, 66, 74, 0.1), 
@@ -734,8 +745,186 @@ header {
     url(../img/nat-5.jpg);
     background-size: cover;
     padding-top: 55px;}
-
     .test-form-group-title{
     text-align: center;
     margin-top: 40px;}
 /************************************************/
+
+/*********************** REPORT PAGE *****************/
+    .div-over-form-report {
+        padding-top: 2rem;}
+    #radio-container {
+        border: 2px solid #6c7a89;
+        border-radius: 3px;
+        background-color: rgba(211, 211, 211, .1);
+        margin-bottom: 2rem;}
+    .form-radio-group-title {
+        /* border: 1px solid black; */
+        padding: 10px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin-bottom: 10px;}
+    .form-radio-group {
+        width: 49%;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        /* display: inline-block; */
+        /* border: 1px solid black; */}
+    .form-radio-input {
+        display: none;}
+    .form-radio-label {
+        font-size: 1.2rem;
+        cursor: pointer;
+        position: relative;
+        padding-left: 3.5rem;}
+    textarea {
+        width: 100%;
+        border-radius: 3px;
+        padding: 1rem;}
+    .form-inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;}
+    .form-inputfile-label {
+        font-size: 12pt;
+        font-weight: 300;
+        padding: 5px;
+        color: #35424a;
+        background-color: #eeeeee;;
+        border: 1px solid grey;
+        border-radius: 3px;
+        display: inline-block;
+        transition: all .5s;}
+    .form-inputfile:focus + label,
+    .form-inputfile + .form-inputfile-label:hover {
+        color:#e8491d;}
+    .form-inputfile + label {
+        cursor: pointer;}
+    .form-radio-button {
+        height: 1.8rem;
+        width: 1.8rem;
+        border: 5px solid #e8491d;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        top: -.26rem;
+        left: 1.3rem;}
+    .form-radio-button::after { /* This is a pseudo-element, an element created with css instead of html. For the technique to work, such an element must have the 'content' and 'display' properties set as follows */
+        content: "";
+        display: block;
+        height: .8rem;
+        width: .8rem;
+        border-radius: 50%;
+        /* the next 4 lines will center the innner dot*/
+        position: absolute;
+        top: 52%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        background-color: #e8491d;
+        opacity: 0;
+        transition: opacity .5s;}
+    .form-radio-input:checked ~ .form-radio-label .form-radio-button::after {
+        opacity: 1;}
+    
+    
+/********************** (END REPORT PAGE) *************/
+
+
+
+/************************ MEDIA QUERY ******************/
+@media (max-width: 850px) {
+    .form {
+        width: 80%;
+    }
+}     
+@media(max-width: 768px) {
+    .flex-box-footer {
+        flex-direction: column;
+        align-items: center;
+        /* align-content: center; */
+        /* justify-content: space-between; */}
+    .footer-navigation, .footer-copyright {
+        display: block;}
+    .flex-box-footer .col-1-of-2 {
+       text-align: center;
+        width: 90%;}
+    .col-1-of-2:last-child {
+        margin-top: 4rem;}
+
+
+    .section-newsletter {
+        padding-top: .5rem;}
+    .section-newsletter .container {
+        margin-top: .5rem !important;
+        text-align: center;
+        width: 100%;
+        height: 9rem;
+        flex-direction: column;
+        align-items: center;}
+    .section-newsletter form, .section-newsletter h1 {
+        font-size: 20px;
+        margin-bottom: 1rem;
+        font-weight: 300;
+        width: 100% !important;}
+    .section-newsletter .container #form-id {
+        flex-direction: column;
+        width: 95% !important;}
+    .input-and-label .label-class {
+        display: none;
+        visibility: hidden;}
+    .input-and-label .input-class {
+        width: 90%;
+        display: block;
+        margin: 0 auto;}
+    .section-newsletter .container #form-id .btn {
+        width: 100%;}
+    .btn-div {
+        width: 50%;
+        margin: 0 auto;}
+   
+    header {
+        background-image: linear-gradient(to right bottom, #35424a, rgba(53, 66, 74, 1));
+        color: #fafad2;
+        padding-top: 30px;
+        min-height: 7rem;}
+     #header-flex-box {
+         flex-direction: column;}
+     .mission-statement {
+        padding: 2rem 0 2rem 0;
+        width: 79%;
+        /* margin: 0 auto; */
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);}
+
+    .section-about .flex-box {
+        flex-direction: column;}
+    .img-gallery { display: none;}
+    .margin-div {
+        margin-right: 20px;
+        margin-left: 20px;}
+
+    .flex-box-card {
+        flex-direction: column;}
+    .flex-box-card .col-1-of-2 {
+        width: 80%;
+        margin: 0 auto;}
+    .flex-box-card .col-1-of-2:last-child {
+        margin-top: 4rem;}
+
+    .form {
+        width: 80%;
+    }
+}
+
+@media(max-width: 600px) {
+    .form {
+        width: 90%;
+    }
+}
+        
+/*******************************************************/
