@@ -9,6 +9,7 @@
     <meta name="author" content="Eneja Kingsley">
     <title>iReporter | Welcome</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="./css/testin.css"> -->
 </head>
 
@@ -20,31 +21,21 @@
                     <h1><a href="index.html"><span class="special-coloring">i</span><span class="repa">Repa</span></a></h1>
                 </div>
                 <nav class="navigation">
+                    <div class="nav-div" id="nav-div">
+                        <a href="index.html" class="active link" id="first-link">sign out</a>
+                        <!-- <a href="index.html">home</a></li> -->
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
                     <ul class="nav-ul">
-                        <!-- <li class="li-outer animated-link"><a href="index.html" class="links">Home</a></li> -->
-                        <!-- <li class="li-outer animated-link"><a href="login.html" class="links">Login</a></li> -->
                         <li class="li-outer animated-link"><a href="index.html" class="links">sign out</a></li>
-                        <li class="li-outer animated-link active-link"><a href="#" class="links">Admin</a></li>
+                        <!-- <li class="li-outer animated-link"><a href="index.html" class="links">home</a></li> -->
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-
-    <section class="section-newsletter" id="section-newsletter-register-page">
-        <div class="container" id="newsletter-container">
-            <h1 id="h1-id">Subscribe To Our Newsletter</h1>
-            <form action="#" id="form-id">
-                <div class="input-and-label">
-                    <input type="email" class="input-class" id="email" placeholder="Enter Email..." required>
-                    <label for="email" class="label-class">Enter Email...</label>
-                </div>
-                <div class="btn-div">
-                    <button type="submit" id="btn__submit" class="btn">Subscribe</button>
-                </div>
-            </form>
-        </div>
-    </section>
     
     <section class="section-admin">
         <div class="section-admin-wrapper-div">
@@ -97,6 +88,7 @@
                                     <option value="rejected">rejected</option>
                                 </select>
                             </td>
+                           
                         </tr>
                         <tr class="row">
                             <td class="cell id">03</td>
@@ -113,6 +105,7 @@
                                     <option value="rejected">rejected</option>
                                 </select>
                             </td>
+                           
                         </tr>
                         <tr class="row">
                             <td class="cell id">04</td>

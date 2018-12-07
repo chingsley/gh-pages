@@ -9,7 +9,7 @@
     <meta name="author" content="Eneja Kingsley">
     <title>iReporter | Welcome</title>
     <link rel="stylesheet" href="./css/style.css">
-    <!-- <link rel="stylesheet" href="./css/testin.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -19,19 +19,26 @@
                 <div class="logo" id="div-site-name-id">
                     <h1><a href="index.html"><span class="special-coloring">i</span><span class="repa">Repa</span></a></h1>
                 </div>
-                <nav class="navigation">
-                    <ul class="nav-ul">
-                        <!-- <li class="li-outer animated-link"><a href="index.html" class="links">Home</a></li> -->
-                        <li class="li-outer animated-link"><a href="login.html" class="links">Report a case</a></li>
-                        <li class="li-outer animated-link"><a href="index.html" class="links">sign out</a></li>
-                        <li class="li-outer animated-link"><a href="#" class="links">My Profile</a></li>
-                    </ul>
-                </nav>
+            <nav class="navigation">
+                <div class="nav-div" id="nav-div">
+                    <a href="report.html" class="active link" id="first-link">report a case</a>
+                    <a href="userprofile.html">my profile</a></li>
+                    <a href="index.html">sign out</a></li>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <ul class="nav-ul">
+                    <li class="li-outer animated-link"><a href="report.html" class="links">report a case</a></li>
+                    <li class="li-outer animated-link"><a href="userprofile.html" class="links">my profile</a></li>
+                    <li class="li-outer animated-link"><a href="index.html" class="links">sign out</a></li>
+                </ul>
+            </nav>
             </div>
         </div>
     </header>
 
-    <section class="section-newsletter" id="section-newsletter-register-page">
+    <!-- <section class="section-newsletter" id="section-newsletter-register-page">
         <div class="container" id="newsletter-container">
             <h1 id="h1-id">Subscribe To Our Newsletter</h1>
             <form action="#" id="form-id">
@@ -44,12 +51,13 @@
                 </div>
             </form>
         </div>
-    </section>
+    </section> -->
 
     <section class="section-reporthistory">
         <div class="section-reporthistory-wrapper">
             <div class="flex-box-reporthistory">
-                <div class="report">
+                <div class="report" id="report-cards">
+                    <button class="btn-report-delete">&times;</button>
                     <div class="div-report-img">
                         <img class="report-img" src="img/1543731908425.jpg" alt="photo img">
                     </div>
@@ -62,6 +70,10 @@
                             <tr>
                                 <td>Created On :</td>
                                 <td>12 Nov, 2018</td>
+                            </tr>
+                            <tr>
+                                <td>Details :</td>
+                                <td style='position:relative;' class="animated-link"><a href="#popup" class="report-card-comments-and-media" style="z-index:1000;">...</a></td>
                             </tr>
                             <tr>
                                 <td>Status :</td>
@@ -88,6 +100,10 @@
                                 <td>12 Nov, 2018</td>
                             </tr>
                             <tr>
+                                <td>Details :</td>
+                                <td style='position:relative;' class="animated-link"><a href="#popup" class="report-card-comments-and-media" style="z-index:1000;">...</a></td>
+                            </tr>
+                            <tr>
                                 <td>Status :</td>
                                 <td class="td-status-resolved">resolved</td>
                             </tr>
@@ -112,6 +128,10 @@
                                 <td>12 Nov, 2018</td>
                             </tr>
                             <tr>
+                                <td>Details :</td>
+                                <td style='position:relative;' class="animated-link"><a href="#popup" class="report-card-comments-and-media" style="z-index:1000;">...</a></td>
+                            </tr>
+                            <tr>
                                 <td>Status :</td>
                                 <td class="td-status-ui">investigating</td>
                             </tr>
@@ -121,8 +141,6 @@
                         <button class="btn disabled-btn" id="btn-edit-report">Edit</button>
                     </div>
                 </div>
-            </div>
-            <div class="flex-box-reporthistory">
                 <div class="report">
                     <div class="div-report-img">
                         <img class="report-img" src="img/download.jpeg" alt="photo img">
@@ -136,6 +154,10 @@
                             <tr>
                                 <td>Created On :</td>
                                 <td>12 Nov, 2018</td>
+                            </tr>
+                            <tr>
+                                <td>Details :</td>
+                                <td style='position:relative;' class="animated-link"><a href="#popup" class="report-card-comments-and-media" style="z-index:1000;">...</a></td>
                             </tr>
                             <tr>
                                 <td>Status :</td>
@@ -162,6 +184,10 @@
                                 <td>12 Nov, 2018</td>
                             </tr>
                             <tr>
+                                <td>Details :</td>
+                                <td style='position:relative;' class="animated-link"><a href="#popup" class="report-card-comments-and-media" style="z-index:1000;">...</a></td>
+                            </tr>
+                            <tr>
                                 <td>Status :</td>
                                 <td class="td-status-resolved">resolved</td>
                             </tr>
@@ -184,6 +210,10 @@
                             <tr>
                                 <td>Created On :</td>
                                 <td>12 Nov, 2018</td>
+                            </tr>
+                            <tr>
+                                <td>Details :</td>
+                                <td style='position:relative;' class="animated-link"><a href="#popup" class="report-card-comments-and-media" style="z-index:1000;">...</a></td>
                             </tr>
                             <tr>
                                 <td>Status :</td>
@@ -235,7 +265,7 @@
                 <img src="img/download (2).jpeg" alt="Tour photo" class="popup-img">
             </div>
             <div class="popup-right">
-                <a href="#div-table-title" class="popup-close">&times;</a>
+                <a href="#report-card" class="popup-close">&times;</a>
                 <!-- <h2 class="heading-secondary">Reporter's Comments & Media</h2> -->
                 <h3 class="heading-tertiary-dark u-margin-bottom-small">Reporter's comment &ndash;</h3>
                 <p class="popup-text">
