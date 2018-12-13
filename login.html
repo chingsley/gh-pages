@@ -92,12 +92,17 @@
     </footer>
 
     <script>
+        const password = document.getElementById('password');
         const btnSubmit = document.getElementById('login-btn-submit');
-            btnSubmit.addEventListener('click', (event) => {
-                event.preventDefault();
-                location.href = 'reporthistory.html'
-                // window.location.assign("https://www.w3schools.com");
-            });
+        btnSubmit.addEventListener('click', (event) => {
+            event.preventDefault();
+            console.log(password.value);
+            if (password.value === 'admin') {
+                location.href = 'adminpage.html';
+            } else {
+                location.href = 'reporthistory.html';
+            }
+        });
     </script>
     <script src="./js/script.js"></script>
 </body>
