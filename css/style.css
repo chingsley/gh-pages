@@ -1076,12 +1076,12 @@ textarea {
     border: 1px solid silver;}
 .comment-and-media-link {
     text-decoration: none;
-    /* font-size: 1rem; */
+    color: black;
     display: block;
-    /* border: 1px solid black; */
+    font-style: italic;
     /* padding: 2px 15px; */
     margin: 0 auto;
-    text-align: center;
+    /* text-align: center; */
     font-weight: bold;}
 select {
     padding: 2px;
