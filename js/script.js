@@ -1,5 +1,3 @@
-// const root = 'http://localhost:3000/api/v1';
-// const imgRoot = 'http://localhost:3000';
 const root = 'https://ireporter-db.herokuapp.com/api/v1';
 const imgRoot = 'https://ireporter-db.herokuapp.com';
 
