@@ -61,6 +61,7 @@
             </div>
         </div>
     </section>
+
     <footer class="footer">
         <div class="footer-logo-box">
             <div class="logo" id="div-site-name-id">
@@ -91,20 +92,30 @@
         </div>
     </footer>
 
-    <script>
-        const password = document.getElementById('password');
-        const btnSubmit = document.getElementById('login-btn-submit');
-        btnSubmit.addEventListener('click', (event) => {
-            event.preventDefault();
-            console.log(password.value);
-            if (password.value === 'admin') {
-                location.href = 'adminpage.html';
-            } else {
-                location.href = 'reporthistory.html';
-            }
-        });
-    </script>
+    <div class="popup-dialog-window" id="popup-dialog-window">
+        <div class="dialog-box" id="dialog-box">
+            <div class="div-dialog-title" id="div-dialog-title">
+                <h3 class="dialog-title" id="dialog-title">
+                    Error !
+                </h3>
+            </div>
+            <div class="div-dialog-msg" id="div-dialog-msg">
+                <p class="dialog-msg" id="dialog-msg">
+                    Invalid email and/or password.
+                    <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium provident possimus incidunt ipsum consequuntur quisquam distinctio odio dignissimos dolore, assumenda animi est ab inventore qui in, commodi sunt fuga ex. -->
+                </p>
+            </div>
+            <div class="div-confirmation" id="div-confirmation">
+                <div class="link-container"><a href="#card-info" class="link btnConfirm" id="link-on-white-bg">Cancel</a></div>
+                <div class="link-container"><a href="#card-info" class="link btnConfirm" id="link-on-white-bg">Proceed &rarr;</a></div>
+            </div>
+            <span class="close-dialog-box" id="close-dialog-box">&times;</span>
+        </div>
+    </div>
+
+
     <script src="./js/script.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 
 </html>
