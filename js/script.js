@@ -1,5 +1,9 @@
+// const root = 'http://localhost:3000/api/v1';
+// const imgRoot = 'http://localhost:3000';
 const root = 'https://ireporter-db.herokuapp.com/api/v1';
 const imgRoot = 'https://ireporter-db.herokuapp.com';
+
+const loader = document.getElementById('loader');
 
 const dialogWindow = document.getElementById('popup-dialog-window');
 const dialogBox = document.getElementById('dialog-box');
@@ -8,6 +12,16 @@ const dialogTitle = document.getElementById('dialog-title');
 const dialogMsg = document.getElementById('dialog-msg');
 const divConfirmation = document.getElementById('div-confirmation');
 const btnConfirm = document.getElementsByClassName('btnConfirm');
+
+const startLoader = () => {
+    loader.style.display = 'block';
+    console.log('loading ...');
+};
+
+const stopLoader = () => {
+    loader.style.display = 'none';
+    console.log('stoped');
+}
 
 const getErrString = (value) => {
     // const errObj = JSON.parse(value);
@@ -127,12 +141,12 @@ const handleResponseError = (response) => {
 
 const handleGeolocationNetworkError = () => {
     msg = `
-        <p style='text-align: center;'>There was an issue with locating the address of this record</p>
+        <p style='text-align: center;'>Could not show the address of this record on google map</p>
         <ul class="dialog-box-ul">
             Try:
             <li>Checking the network cables, modem, and router</li>
             <li>Reconnecting to Wi-Fi</li>
-            <li>Also ensure that the address is correct</li>
+            <li>Also ensure the address is correct</li>
         </ul>`;
     showDialogMsg(0, 'Geolocation Error', msg);
 };

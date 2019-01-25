@@ -55,46 +55,47 @@
                     PROFILE
                 </div>
                 <div class="div-profile-content div-profile-content-picture u-margin-top-small">
-                    <div class="piture-div-img">
-                        <img src="img/1543731291418.jpg" alt="profile picture">
+                    <div class="piture-div-img" id="picture-div-img">
+                        <!-- <img id="profile-picture" alt="profile picture"> -->
+                        <!-- <img src="img/1543731291418.jpg" alt="profile picture"> -->
                     </div>
                 </div>
                 <div class="div-profile-content div-profile-content-userdetails">
-                    <p class="fullname">Julia James Junior</p>
-                    <h4 class="telephone">jj-junior@gmail.com</h4>
+                    <p class="fullname" id="fullname"></p>
+                    <h4 class="email" id="email"></h4>
                 </div>
                 <div class="div-profile-content div-profile-content-flexbox u-margin-top-small">
                     <div class="flex-child redflag">
-                        <h4>50</h4><p>RED-FLAGS</p>
+                        <h4 id="count-redflags">0</h4><p>RED-FLAGS</p>
                     </div>
                     <div class="flex-child incidence">
-                        <h4>45</h4><p>INCIDENCES</p>
+                        <h4 id="count-interventions">0</h4><p>INCIDENCES</p>
                     </div>
                 </div>
                 <div class="div-profile-content div-profile-content-flexbox u-margin-top-small">
                     <div class="flex-child stats redflag-stats">
                         <ul>
-                            <li>10 Draft</li>
-                            <li>15 Rejected</li>
-                            <li>14 Resolved</li>
-                            <li>11 Under Investigation</li>
+                            <li><span id="draft-redflags">0</span> Draft</li>
+                            <li><span id="rejected-redflags">0</span> Rejected</li>
+                            <li><span id="resolved-redflags">0</span> Resolved</li>
+                            <li><span id="ui-redflags">0</span> Under Investigation</li>
                         </ul>
                     </div>
                     <div class="flex-child stats incidence-stats">
                         <ul>
-                            <li>10 Draft</li>
-                            <li>10 Rejected</li>
-                            <li>14 Resolved</li>
-                            <li>11 Under Investigation</li>
+                            <li><span id="draft-interventions">0</span> Draft</li>
+                            <li><span id="rejected-interventions">0</span> Rejected</li>
+                            <li><span id="resolved-interventions">0</span> Resolved</li>
+                            <li><span id="ui-interventions">0</span> Under Investigation</li>
                         </ul>
                     </div>
                 </div>
                 <div class="div-profile-content div-profile-content-flexbox u-margin-top-small" id="div-profile-content-flexbox-username-part">
                     <div class="flex-child" id="pic-for-username">
-                        <img src="img/1543731291418.jpg" alt="profile picture">
+                        <!-- <img src="img/1543731291418.jpg" alt="profile picture"> -->
                     </div>
                     <div class="flex-child" id="profile-username">
-                        <h3>JuliaJ95Jnr</h3>
+                        <h3 id="username"></h3>
                     </div>
                 </div>
             </div>
@@ -129,12 +130,38 @@
             </div>
         </div>
     </footer>
+
+    <div class="popup-dialog-window" id="popup-dialog-window">
+        <div class="dialog-box" id="dialog-box">
+            <div class="div-dialog-title" id="div-dialog-title">
+                <h3 class="dialog-title" id="dialog-title">
+                    Error !
+                </h3>
+            </div>
+            <div class="div-dialog-msg" id="div-dialog-msg">
+                <p class="dialog-msg" id="dialog-msg">
+                    Invalid email and/or password.
+                    <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium provident possimus incidunt ipsum consequuntur quisquam distinctio odio dignissimos dolore, assumenda animi est ab inventore qui in, commodi sunt fuga ex. -->
+                </p>
+            </div>
+            <div class="div-confirmation" id="div-confirmation">
+                <div class="link-container"><a href="#card-info" class="link btnConfirm" id="link-on-white-bg">Cancel</a></div>
+                <div class="link-container"><a href="#card-info" class="link btnConfirm" id="link-on-white-bg">Proceed
+                        &rarr;</a></div>
+            </div>
+            <span class="close-dialog-box" id="close-dialog-box">&times;</span>
+        </div>
+    </div>
+
+    <div id="loader"></div>
+
     <script>
-        let date = document.getElementById('date');
-        date.innerHTML = (new Date()).toLocaleString();
-        console.log(Date.now());
+        // let date = document.getElementById('date');
+        // date.innerHTML = (new Date()).toLocaleString();
+        // console.log(Date.now());
     </script>
     <script src="./js/script.js"></script>
+    <script src="./js/userprofile.js"></script>
 </body>
 
 </html>

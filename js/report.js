@@ -6,7 +6,7 @@ let infowindow;
 let map;
 
 {// HANDLING GEOLOCATION
-    let btn = document.getElementById('btn-get-current-location');
+    let btnGetCurrentLocation = document.getElementById('btn-get-current-location');
     let coords = document.getElementById('coords');
 
     function initMap() {
@@ -18,6 +18,7 @@ let map;
         infowindow = new google.maps.InfoWindow();
 
         document.getElementById('address').addEventListener('change', function () {
+            startLoader();
             geocodeAddress(geocoder, map, infowindow);
         });
     }
@@ -25,6 +26,7 @@ let map;
     function geocodeAddress(geocoder, resultsMap, infowindow) {
         geocoder.geocode({ 'address': address.value }, function (results, status) {
             if (status === 'OK') {
+                stopLoader();
                 coords.value = `${results[0].geometry.location.lat()}, ${results[0].geometry.location.lng()}`;
                 resultsMap.setCenter(results[0].geometry.location);
                 let marker = new google.maps.Marker({
@@ -35,7 +37,10 @@ let map;
                 infowindow.open(map, marker);
 
             } else {
-                alert('The address you entered is unknown: ' + status);
+                stopLoader();
+                msg = `Please enter a valid address.`
+                showDialogMsg(0, 'Geolocation Error', msg, 'center');
+                // alert('The address you entered is unknown: ' + status);
             }
         });
     }
@@ -44,18 +49,22 @@ let map;
     function showError(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
+                stopLoader();
                 msg = "User denied the request for Geolocation.";
                 showDialogMsg(0, 'Geolocation Error', msg, 'center');
                 break;
             case error.POSITION_UNAVAILABLE:
+                stopLoader();
                 msg = "Location information is unavailable.";
                 showDialogMsg(0, 'Geolocation Error', msg, 'center');
                 break;
             case error.TIMEOUT:
+                stopLoader();
                 msg = "The request to get user location timed out.";
                 showDialogMsg(0, 'Geolocation Error', msg, 'center');
                 break;
             case error.UNKNOWN_ERROR:
+                stopLoader();
                 msg = "An unknown error occurred.";
                 showDialogMsg(0, 'Geolocation Error', msg, 'center');
                 break;
@@ -70,6 +79,7 @@ let map;
         try {
             geocoder.geocode({ 'location': latlng }, function (results, status) {
                 if (status === 'OK') {
+                    stopLoader();
                     resultsMap.setCenter(results[0].geometry.location);
                     let marker = new google.maps.Marker({
                         map: resultsMap,
@@ -80,12 +90,14 @@ let map;
                     // address.value = recordAddress;
                     infowindow.open(map, marker);
                 } else {
+                    stopLoader();
                     handleGeolocationNetworkError();
                     // alert('The address you entered is unknown: ' + status);
                 }
             });
         } catch (err) {
             console.log(err);
+            stopLoader();
             handleGeolocationNetworkError();
         };
     }
@@ -94,32 +106,34 @@ let map;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition, showError);
         } else {
-            alert("Geolocation is not supported by this browser.");
+            msg = "Geolocation is not supported by this browser.";
+            showDialogMsg(0, 'Geolocation Error', msg, 'center');
+            // alert("Geolocation is not supported by this browser.");
         }
     }
 
     async function showPosition(position) {
         coords.value = await `${position.coords.latitude}, ${position.coords.longitude}`;
-        console.log(position.coords);
-        console.log(coords.value);
-        console.log('here');
         geocodeLatLng(geocoder, map, infowindow);
         return true;
     }
 
-    btn.addEventListener('click',  async (event) => {
+    btnGetCurrentLocation.addEventListener('click',  async (event) => {
         event.preventDefault();
+
+        startLoader();
         const res = await getLocation();
         console.log(res);
     });
 }
 
 {// HANDLING FETCH TO POST A NEW RECORD
-    const reportForm = document.getElementById('report-form');
-    const location = document.getElementById('coords');
     const comment = document.getElementById('comment');
-    const sendBtn = document.getElementById('btn-send-report');
     const images = document.getElementById('pic');
+    const location = document.getElementById('coords');
+    const MEDIA_MAX_COUNT = 3;
+    const reportForm = document.getElementById('report-form');
+    const sendBtn = document.getElementById('btn-send-report');
     const videos = document.getElementById('video');
 
     sendBtn.addEventListener('click', (event) => {
@@ -167,29 +181,79 @@ let map;
         const options = { method: 'POST', mode: 'cors', headers: myHeaders, body: fd, };
         const req = new Request(uri, options);
 
+        startLoader();
         createReport(req);
     });
 
     const createReport = (req) => {
         fetch(req)
             .then(response => {
-                // console.log('line 134 report.js', response);
                 return response.json();
             })
             .then(response => {
-                // console.log('line 138 report.js, response = ', response);
+                stopLoader();
                 if (response.status === 201) {
                     sessionStorage.recordId = response.data[0].id;
                     showDialogMsg(2, 'Saved', response.data[0].message, 'center');
                 } else {
-                    // throw new Error(JSON.stringify(response.error));
                     handleResponseError(response);
                 }
             })
             .catch(err => {
+                stopLoader();
                 handleError(err);
             });
     };
 
+    images.addEventListener('change', () => {
+        const files = images.files;
+        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+        for (let i = 0; i < files.length; i += 1) {
+            if (!allowedTypes.includes(files[i].type)) {
+                msg = `"${files[i].name}" of type "${files[i].type}" is not supported
+                    </br> Supported formats are ${allowedTypes.join(', ')}`;
+                showDialogMsg(0, 'Unsupported Image Format', msg, 'center');
+
+                images.value = ""; // clear the content of the the file input element
+                return;
+            }
+        }
+
+        if (files.length > MEDIA_MAX_COUNT) {
+            msg = `Maximum number of image upload is ${MEDIA_MAX_COUNT}`;
+            showDialogMsg(0, 'Image Upload Error', msg, 'center');
+
+            imgFileInput.value = "";
+            return;
+        }
+    });
+
+    videos.addEventListener('change', () => {
+        const files = videos.files;
+        const allowedTypes = ['video/mp4'];
+        for (let i = 0; i < files.length; i += 1) {
+            if (!allowedTypes.includes(files[i].type)) {
+                msg = `"${files[i].name}" of type "${files[i].type}" is not supported
+                    </br> Supported formats are ${allowedTypes.join(', ')}`;
+                showDialogMsg(0, 'Unsupported Video Format', msg, 'center');
+                videos.value = ""; // clear the content of the the file input element
+                return;
+            } else if (files[i].size > 10000000) {
+                msg = `${files[i].name} exceeds the limit of allowed video size <br>
+                    MAXIMUM ALLOWED SIZE PER VIDEO IS 10MB`;
+                showDialogMsg(0, 'Large Video detected', msg, 'center');
+                videos.value = "";
+                return;
+            }
+        }
+
+        if (files.length > MEDIA_MAX_COUNT) {
+            msg = `Maximum number of video upload is ${MEDIA_MAX_COUNT}`;
+            showDialogMsg(0, 'Video Upload Error', msg, 'center');
+
+            videos.value = "";
+            return;
+        }
+    });
 }
 

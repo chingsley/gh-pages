@@ -10,6 +10,8 @@ const btnRegister = document.getElementById('btn-reg');
 
 btnRegister.addEventListener('click', (event) => {
     event.preventDefault();
+
+    startLoader();
     
     let formdata = new FormData();
     formdata.append('firstname', firstname.value);
@@ -32,6 +34,7 @@ btnRegister.addEventListener('click', (event) => {
         })
         .then(response => {
             // console.log('response = ', response);
+            stopLoader();
             if(response.status === 201) {
                 sessionStorage.token = response.data[0].token;
                 const msg = `You have been successfully Registered !

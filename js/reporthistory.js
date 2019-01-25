@@ -15,6 +15,8 @@ const reqRedflags = fetch(redflagsURL, options);
 const reqInterventions = fetch(interventionsURL, options);
 const errorDisplay = document.getElementById('outerErrorDisplayBox');
 
+startLoader();
+
 
 Promise.all([reqInterventions, reqRedflags])
 .then((responseArr) => {
@@ -22,6 +24,7 @@ Promise.all([reqInterventions, reqRedflags])
         process(response.json()); // the .json() method returns a promise
     });
 }).catch(err => {
+    stopLoader();
     errorDisplay.style.display = 'block';
     console.log(err);
     handleError(err);
@@ -34,14 +37,12 @@ const process = (promisedJson) => {
         // const records = responseObj.data;
         count += 1;
         records = records.concat(responseObj.data); // merge new array with the existing one.
-        // console.log(records);
-        console.log('records.length', records.length);
-        console.log('count', count);
 
        if(count > 1) { // i. if process() function has been called twice, since we are making two requests
+           stopLoader();
            if (records.length > 0) {
+               records.sort((a, b) => a.id - b.id);
                records.forEach(record => {
-                   // console.log(record);
                    const defaultImg = (record.type === 'red-flag') ?
                        "../img/redflag-img.png" :
                        "../img/intervention-img.png";
@@ -220,10 +221,10 @@ const process = (promisedJson) => {
                    btnDelete.addEventListener('click', (event) => {
                     //    sessionStorage.recordId = record.id;
                        const msg = `
-                    Are you sure you want to delete this record ?
-                    <br><br>
-                    NOTE: This operation is not reversible !
-                    `;
+                        Are you sure you want to delete this record ?
+                        <br><br>
+                        NOTE: This operation is not reversible !
+                        `;
 
                        setTimeout(() => {
                            showDialogMsg(1, 'WARNING', msg, 'center');
@@ -232,8 +233,10 @@ const process = (promisedJson) => {
                        // The 'PROCEED' btn for the WARNING dialog box: 
                     //    btnConfirm[1].onclick = () => {
                         btnConfirm[1].addEventListener('click', async () => {
+                            startLoader();
                             try {
                                 const successfulDelete = await deleteRecord(record.type, record.id);
+                                stopLoader()
                                 if(successfulDelete) {
                                     dialogWindow.style.display = "none";
                                     console.log(record.id);
@@ -248,6 +251,7 @@ const process = (promisedJson) => {
                                     showDialogMsg(0, 'Error', msg, 'center');
                                 }
                             } catch(err) {
+                                stopLoader();
                                 console.log(err);
                                 handleError(err);
                             };
