@@ -85,7 +85,6 @@ spanRecordType.innerText = recordType.toString().toUpperCase();
             try {
                 geocoder.geocode({ 'address': address.value }, function (results, status) {
                     if (status === 'OK') {
-                        // isValidCoords = true;
                         coords.value = `${results[0].geometry.location.lat()}, ${results[0].geometry.location.lng()}`;
                         resultsMap.setCenter(results[0].geometry.location);
                         let marker = new google.maps.Marker({
@@ -95,6 +94,7 @@ spanRecordType.innerText = recordType.toString().toUpperCase();
                         infowindow.setContent(results[0].formatted_address);
                         recordAddress = results[0].formatted_address;
                         infowindow.open(map, marker);
+                        stopLoader();
                         resolve(true);
                     } else {
                         if (status === 'ERROR') {
@@ -109,6 +109,7 @@ spanRecordType.innerText = recordType.toString().toUpperCase();
                 });
             }
             catch(err) {
+                stopLoader();
                 handleGeolocationNetworkError();
             }
         });
@@ -132,13 +133,16 @@ spanRecordType.innerText = recordType.toString().toUpperCase();
                     recordAddress = results[0].formatted_address;
                     address.value = recordAddress;
                     infowindow.open(map, marker);
+                    stopLoader();
                 } else {
+                    stopLoader();
                     handleGeolocationNetworkError();
                     // alert('The address you entered is unknown: ' + status);
                 }
             });
         } catch(err){
             console.log(err);
+            stopLoader();
             handleGeolocationNetworkError();
         };
     }
@@ -166,6 +170,7 @@ const addImg = () => {
         return response.json();
     })
     .then(response => {
+        stopLoader();
         if(response.status === 200) {
             showDialogMsg(2, 'Upload Successful', response.data[0].message, 'center');
             setTimeout(() => {
@@ -176,6 +181,7 @@ const addImg = () => {
         }
     })
     .catch(err => {
+        stopLoader();
         handleError(err);
     });
 
@@ -188,6 +194,7 @@ const addVideo = () => {
         return response.json();
     })
     .then(response => {
+        stopLoader();
         if(response.status === 200) {
             showDialogMsg(2, 'Upload Successful', response.data[0].message, 'center');
             setTimeout(() => {
@@ -198,6 +205,7 @@ const addVideo = () => {
         }
     })
     .catch(err => {
+        stopLoader();
         handleError(err);
     });
 
@@ -325,6 +333,7 @@ const patchComment = () => {
             return response.json();
         })
         .then(response => {
+            stopLoader();
             if (response.status === 200) {
                 msg = `<p>${response.data[0].message}</p>`;
                 showDialogMsg(2, 'Saved', msg, 'center');
@@ -338,6 +347,7 @@ const patchComment = () => {
             }
         })
         .catch(err => {
+            stopLoader();
             handleError(err);
         });
 };
@@ -349,6 +359,7 @@ const patchLocation = () => {
         return response.json();
     })
     .then(response => {
+        stopLoader();
         if (response.status === 200) {
             msg = `<p>${response.data[0].message}</p>
                     <p>Closest landmark: ${recordAddress}</p>`;
@@ -363,6 +374,7 @@ const patchLocation = () => {
         }
     })
     .catch(err => {
+        stopLoader();
         handleError(err);
     });
 };
@@ -380,21 +392,25 @@ address.addEventListener('input', () => {
 
 btnAddImages.addEventListener('click', (event) => {
     event.preventDefault();
+    startLoader();
     addImg();
 });
 
 btnAddVideos.addEventListener('click', (event) => {
     event.preventDefault();
+    startLoader();
     addVideo();
 });
 
 btnSaveComment.addEventListener('click', (event) => {
     event.preventDefault();
+    startLoader();
     patchComment();
 });
 
 btnSaveLocation.addEventListener('click', (event) => {
     event.preventDefault();
+    startLoader();
     let p1 = geocodeAddress(geocoder, map, infowindow);
 
     p1.then((result) => {
@@ -402,6 +418,7 @@ btnSaveLocation.addEventListener('click', (event) => {
 
         setTimeout(() => { patchLocation(); }, 1000);
     }).catch(err => {
+        stopLoader();
         showDialogMsg(0, err.errType, err.message, 'center');
     });
 });
@@ -476,6 +493,7 @@ vidFileInput.addEventListener('change', () => {
 });
 
 window.addEventListener('load', () => {
+    startLoader();
     geocodeLatLng(geocoder, map, infowindow);
 }, false);
 

@@ -26,7 +26,6 @@ let map;
     function geocodeAddress(geocoder, resultsMap, infowindow) {
         geocoder.geocode({ 'address': address.value }, function (results, status) {
             if (status === 'OK') {
-                stopLoader();
                 coords.value = `${results[0].geometry.location.lat()}, ${results[0].geometry.location.lng()}`;
                 resultsMap.setCenter(results[0].geometry.location);
                 let marker = new google.maps.Marker({
@@ -35,7 +34,7 @@ let map;
                 });
                 infowindow.setContent(results[0].formatted_address);
                 infowindow.open(map, marker);
-
+                stopLoader();
             } else {
                 stopLoader();
                 msg = `Please enter a valid address.`
@@ -79,7 +78,6 @@ let map;
         try {
             geocoder.geocode({ 'location': latlng }, function (results, status) {
                 if (status === 'OK') {
-                    stopLoader();
                     resultsMap.setCenter(results[0].geometry.location);
                     let marker = new google.maps.Marker({
                         map: resultsMap,
@@ -89,6 +87,7 @@ let map;
                     address.value = results[0].formatted_address;
                     // address.value = recordAddress;
                     infowindow.open(map, marker);
+                    stopLoader();
                 } else {
                     stopLoader();
                     handleGeolocationNetworkError();
