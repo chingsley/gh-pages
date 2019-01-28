@@ -87,6 +87,8 @@ const displayContents = async () => {
     uiInterventions.textContent = get('under investigation', interventions);
 };
 
+// This function takes an array of incidents or redflags as the 2nd argument, 
+//  and returns the number of records that has the 'status' specified as the first argument.
 const get = (status, arr) => {
     return arr.filter(element => element.status === status).length;
 }; 

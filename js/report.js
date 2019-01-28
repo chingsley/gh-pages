@@ -24,27 +24,42 @@ let map;
     }
 
     function geocodeAddress(geocoder, resultsMap, infowindow) {
-        geocoder.geocode({ 'address': address.value }, function (results, status) {
-            if (status === 'OK') {
-                coords.value = `${results[0].geometry.location.lat()}, ${results[0].geometry.location.lng()}`;
-                resultsMap.setCenter(results[0].geometry.location);
-                let marker = new google.maps.Marker({
-                    map: resultsMap,
-                    position: results[0].geometry.location
-                });
-                infowindow.setContent(results[0].formatted_address);
-                infowindow.open(map, marker);
-                stopLoader();
-            } else {
-                stopLoader();
-                msg = `Please enter a valid address.`
-                showDialogMsg(0, 'Geolocation Error', msg, 'center');
-                // alert('The address you entered is unknown: ' + status);
-            }
-        });
+        try {
+            geocoder.geocode({ 'address': address.value }, function (results, status) {
+                if (status === 'OK') {
+                    coords.value = `${results[0].geometry.location.lat()}, ${results[0].geometry.location.lng()}`;
+                    resultsMap.setCenter(results[0].geometry.location);
+                    let marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+                    infowindow.setContent(results[0].formatted_address);
+                    infowindow.open(map, marker);
+                    stopLoader();
+                } else {
+                    stopLoader();
+                    if (status === 'ERROR') {
+                        msg = `${status}<br>
+                            Theres was a problem with geolocation.
+                            <br>Please check your internet connection and <strong>try again</strong> `;
+                        showDialogMsg(0, 'Geolocation Error', msg, 'center');
+                    } else {
+                        // msg = 'The address you entered is unknown: ' + status;
+                        msg = `${status}<br> Unknown address. Please enter a valid address.`;
+                        showDialogMsg(0, 'Geolocation Error', msg, 'center');
+                    }
+                    // msg = `Please enter a valid address.`
+                    // showDialogMsg(0, 'Geolocation Error', msg, 'center');
+                    // alert('The address you entered is unknown: ' + status);
+                }
+            });
+        } catch(err) {
+            stopLoader();
+            handleGeolocationNetworkError();
+        };
+        
     }
 
-    // const x = document.getElementById("demo");
     function showError(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
@@ -54,7 +69,8 @@ let map;
                 break;
             case error.POSITION_UNAVAILABLE:
                 stopLoader();
-                msg = "Location information is unavailable.";
+                msg = `Location information is unavailable. Ensure your are connected to the internet, 
+                        then <strong>try again</strong>`;
                 showDialogMsg(0, 'Geolocation Error', msg, 'center');
                 break;
             case error.TIMEOUT:
@@ -64,7 +80,7 @@ let map;
                 break;
             case error.UNKNOWN_ERROR:
                 stopLoader();
-                msg = "An unknown error occurred.";
+                msg = "An unknown error occurred while trying to locate the your address on google map";
                 showDialogMsg(0, 'Geolocation Error', msg, 'center');
                 break;
         }
@@ -162,12 +178,15 @@ let map;
 
         if(images.files.length > 0) {
             for (let i = 0; i < images.files.length; i++) {
-                fd.append('images', images.files[i], `${sessionStorage.userId}_${images.files[i].name}`);
+                // fd.append('images', images.files[i], `${sessionStorage.userId}_${images.files[i].name}`);
+                // fd.append('images', images.files[i], `${sessionStorage.userId}_${images.files[i]}`);
+                fd.append('images', images.files[i]);
             }
         }
         if(videos.files.length > 0) {
             for (let i = 0; i < videos.files.length; i++) {
-                fd.append('videos', videos.files[i], `${sessionStorage.userId}_${videos.files[i].name}`);
+                // fd.append('videos', videos.files[i], `${sessionStorage.userId}_${videos.files[i]}`);
+                fd.append('videos', videos.files[i]);
             }
         }
 

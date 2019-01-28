@@ -98,11 +98,13 @@ spanRecordType.innerText = recordType.toString().toUpperCase();
                         resolve(true);
                     } else {
                         if (status === 'ERROR') {
-                            msg = `Theres was a problem with geolocation. <br>Please check your internet connection: ` + status;
+                            msg = `${status}<br>
+                            Theres was a problem with geolocation.
+                            <br>Please check your internet connection and <strong>try again</strong> `;
                             reject({ message: msg, errType: 'network error' })
                         } else {
-                            msg = 'The address you entered is unknown: ' + status;
-                            msg = `${status}: unknown address. <br> Please enter a valid address.`;
+                            // msg = 'The address you entered is unknown: ' + status;
+                            msg = `${status}<br> Unknown address. Please enter a valid address.`;
                             reject({ message: msg, errType: 'Geolocation error' })
                         }
                     }
@@ -136,7 +138,12 @@ spanRecordType.innerText = recordType.toString().toUpperCase();
                     stopLoader();
                 } else {
                     stopLoader();
-                    handleGeolocationNetworkError();
+                    msg = `
+                        <p style='text-align: center;'>Failed to locate the address on google map due to network error.</p>
+                        <p style='text-align: center;'>Ensure you are properly connected to the internet, <strong>then Resfresh the page.</strong></p>
+                        <p style='text-align: center;'>If your network connection is weak, you may need to <strong>refresh</strong> the page a couple of times.</p>
+                        `;
+                    showDialogMsg(0, 'Geolocation Error', msg);
                     // alert('The address you entered is unknown: ' + status);
                 }
             });
@@ -149,14 +156,42 @@ spanRecordType.innerText = recordType.toString().toUpperCase();
 
     function getLocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
         } else {
-            alert("Geolocation is not supported by this browser.");
+            msg = "Geolocation is not supported by this browser.";
+            showDialogMsg(0, 'Geolocation Error', msg, 'center');
         }
     }
 
-    function showPosition(position) {
-        coords.value = `${position.coords.latitude}, ${position.coords.longitude}`;
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                stopLoader();
+                msg = "User denied the request for Geolocation.";
+                showDialogMsg(0, 'Geolocation Error', msg, 'center');
+                break;
+            case error.POSITION_UNAVAILABLE:
+                stopLoader();
+                msg = `Location information is unavailable. Ensure your are connected to the internet, 
+                        then <strong>try again</strong>`;
+                showDialogMsg(0, 'Geolocation Error', msg, 'center');
+                break;
+            case error.TIMEOUT:
+                stopLoader();
+                msg = "The request to get user location timed out.";
+                showDialogMsg(0, 'Geolocation Error', msg, 'center');
+                break;
+            case error.UNKNOWN_ERROR:
+                stopLoader();
+                msg = "An unknown error occurred while trying to locate the your address on google map";
+                showDialogMsg(0, 'Geolocation Error', msg, 'center');
+                break;
+        }
+    }
+
+    async function showPosition(position) {
+        coords.value = await `${position.coords.latitude}, ${position.coords.longitude}`;
+        geocodeLatLng(geocoder, map, infowindow);
     }
 
 }
@@ -301,14 +336,18 @@ const getRequestObj = (str) => {
         case('addImage') :
             if (images.length > 0) {
                 for (let i = 0; i < images.length; i += 1) {
-                    formdata.append('images', images[i], `${recordId}_${images[i].name}`);
+                    // formdata.append('images', images[i], `${recordId}_${images[i].name}`);
+                    // formdata.append('images', images[i], `${recordId}_${images[i]}`);
+                    formdata.append('images', images[i]);
                 }
             }
             break;
         case('addVideo') : 
             if (videos.length > 0) {
                 for (let i = 0; i < videos.length; i += 1) {
-                    formdata.append('videos', videos[i], `${recordId}_${videos[i].name}`);
+                    // formdata.append('videos', videos[i], `${recordId}_${videos[i].name}`);
+                    // formdata.append('videos', videos[i], `${recordId}_${videos[i]}`);
+                    formdata.append('videos', videos[i]);
                 }
             }
             break;
@@ -400,6 +439,13 @@ btnAddVideos.addEventListener('click', (event) => {
     event.preventDefault();
     startLoader();
     addVideo();
+});
+
+btnGetCurrentLocation.addEventListener('click', async (event) => {
+    event.preventDefault();
+    startLoader();
+    getLocation();
+    btnSaveLocation.disabled = false;
 });
 
 btnSaveComment.addEventListener('click', (event) => {

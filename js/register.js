@@ -21,10 +21,8 @@ btnRegister.addEventListener('click', (event) => {
     formdata.append('email', email.value);
     formdata.append('password', password.value);
     formdata.append('phoneNumber', phonenumber.value);
-    formdata.append('picture', picture.files[0], `${email.value}.jpeg`);
+    formdata.append('picture', picture.files[0]);
 
-    console.log('formdata', formdata);
-    
     const uri = `${root}/auth/signup`
     const options = { method: 'POST', mode: 'cors', body: formdata };
     const req = new Request(uri, options);
